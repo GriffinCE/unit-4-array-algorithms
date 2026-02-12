@@ -31,7 +31,7 @@ public class ArrayAlgorithms {
 
    public int findMax() {
       // REQUIRED: return the largest integer in intArray
-      int max = 0;
+      int max = -999999999;
       for (int i = 0; i < intArray.length; i++) {
          if (intArray[i] > max) {
             max = intArray[i];
@@ -43,10 +43,16 @@ public class ArrayAlgorithms {
    public boolean hasDuplicates() {
       // REQUIRED: return true if there are duplicate values in the array
       // HINT: use a nested for loop
+      int num = 101;
       for (int i  = 0; i < intArray.length; i++) {
-         
+         num = intArray[i];
+         for (int j = i + 1; j <intArray.length; j++) {
+            if (num == intArray[j]) {
+               return true;
+            }
+         }
       }
-      return true;
+      return false;
    }
 
    public boolean isInArray(int intToFind) {
@@ -72,7 +78,7 @@ public class ArrayAlgorithms {
       // 1) Create an ArrayAlgorithms object
       // 2) Populate the array with random numbers
       // 3) Call and print the result of EACH REQUIRED method
-      ArrayAlgorithms newArray = new ArrayAlgorithms(20);
+      ArrayAlgorithms newArray = new ArrayAlgorithms(25);
       newArray.populateArrayWithRandom();
       newArray.printArray();
       System.out.println("\nThe highest number in the array is " + newArray.findMax());
